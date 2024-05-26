@@ -11,7 +11,7 @@ export default function homebuyer() {
         async function fetchpro(){
             try {
             
-                const res = await axios.get('https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/property/sellerproperties');
+                const res = await axios.get('https://presidio-backend-1.onrender.com/property/sellerproperties');
                 const { message, data } = res.data;
                 if (message === 'failed') {
                   setFetchStatus(0);
@@ -35,13 +35,13 @@ export default function homebuyer() {
       async function like(e,s){
         const ud=localStorage.getItem('UserDetail')
         const parse=JSON.parse(ud)
-         const res=await axios.post('https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/like/addlike',{buyerID:parse._id,sellerID:s,propertyID:e,email:parse.email})
+         const res=await axios.post('https://presidio-backend-1.onrender.com/like/addlike',{buyerID:parse._id,sellerID:s,propertyID:e,email:parse.email})
          const {message}=res.data
          if(message=='f'){
           toast.warn('Already Liked')
          }
          else if(message=='s'){
-          const res2 = await axios.get('https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/property/sellerproperties');
+          const res2 = await axios.get('https://presidio-backend-1.onrender.com/property/sellerproperties');
           const { message, data } = res2.data;
           if (message === 'failed') {
             setFetchStatus(0);
