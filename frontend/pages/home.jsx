@@ -29,7 +29,7 @@ const Home = () => {
     try {
       const ud = localStorage.getItem('UserDetail');
       const parse = JSON.parse(ud);
-      const res = await axios.get(`https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/property/properties/${parse._id}`);
+      const res = await axios.get(`https://presidio-backend-1.onrender.com/property/properties/${parse._id}`);
       const { message, data } = res.data;
       if (message === 'failed') {
         setFetchStatus(0);
@@ -55,7 +55,7 @@ const Home = () => {
     try {
       if (isEditing && currentPropertyId) {
         // Update existing property
-        const res = await axios.put(`https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/property/properties/${currentPropertyId}`, {
+        const res = await axios.put(`https://presidio-backend-1.onrender.com/property/properties/${currentPropertyId}`, {
           title,
           place,
           area,
@@ -72,7 +72,7 @@ const Home = () => {
         }
       } else {
         // Create new property
-        await axios.post('https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/property/properties', {
+        await axios.post('https://presidio-backend-1.onrender.com/property/properties', {
           title,
           place,
           area,
@@ -121,7 +121,7 @@ const Home = () => {
     try {
       const ud = localStorage.getItem('UserDetail');
       const parse = JSON.parse(ud);
-      const res = await axios.delete(`https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/property/properties/${id}/${parse._id}`);
+      const res = await axios.delete(`https://presidio-backend-1.onrender.com/property/properties/${id}/${parse._id}`);
       const { message } = res.data;
       if (message === 's') {
         fetchProperties();
@@ -135,7 +135,7 @@ const Home = () => {
     const ud = localStorage.getItem('UserDetail');
     const parse = JSON.parse(ud);
     try {
-      const res = await axios.post('https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/like/getlike', {
+      const res = await axios.post('https://presidio-backend-1.onrender.com/like/getlike', {
         sellerID: parse._id,
         propertyID: propertyId,
         
