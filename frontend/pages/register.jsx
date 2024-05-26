@@ -38,7 +38,7 @@ export default function Register() {
         }
         else{
            
-            const response=await axios.post('https://challenges-presidioback-8nd8qahl2-rohits-projects-a5c6d24a.vercel.app/api/register',{firstname:firstname,lastname:lastname,email:email,password:password,phone:phone,usertype:usertype})
+            const response=await axios.post('https://presidio-backend-1.onrender.com/api/register',{firstname:firstname,lastname:lastname,email:email,password:password,phone:phone,usertype:usertype})
             const {message,ud}=response.data
             if(message=='User Created Succesfully'){
                 toast.success('Registration Completed Successfully')
